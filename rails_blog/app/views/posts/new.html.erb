@@ -1,10 +1,19 @@
-<form action="/posts" method="post">
-	<input type="text" name="post[title]" placeholder="Enter Title" autofocus>
-	<input type="text" name="post[author]" placeholder="Enter Name">
-	<textarea type="text" name="post[description]" placeholder="Type away!"></textarea>
-	<input type="text" name="tag[name]" placeholder="tag me: ie. happy, sad, etc">
-	<!-- <input type="hidden" name="post_tag[date]" value="<%= Time.now %>" -->
-	<%= token_tag form_authenticity_token %>
+<div class="container">
+	
+	<div class="jumbotron">
+		
+		<form action="/posts" method="post">
 
-	<button>Save</button>
-</form>
+			<label>Title: <input type="text" name="post[title]" placeholder="Enter Title" autofocus></label><br>
+			<label>Name: <input type="text" name="post[author]" placeholder="Enter Name"></label><br>
+			<label>Content: <textarea type="text" name="post[description]" placeholder="Type away!"></textarea></label><br>
+			<label>Tag: <input type="text" name="tag[name]" placeholder="tag me: ie. happy, sad, etc"></label><br>
+				<!-- <input type="hidden" name="post_tag[date]" value="<%= Time.now %>" -->
+			<%= token_tag form_authenticity_token %>
+
+			<button class="btn btn-warm">Save</button>
+		</form>
+
+	</div>
+
+</div>

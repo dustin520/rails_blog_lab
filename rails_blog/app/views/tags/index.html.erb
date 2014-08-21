@@ -1,9 +1,21 @@
-<h1>Posts filtered by Tag</h1>
+<div class="container">
+	
+	<div class="jumbotron">
+		
+		<h2>Posts filtered by Tag</h2>
 
-<% @tags.each do |tag| %>
-	<div>
-		<h2><%= tag.name %></h2>
+		<% @tags.each do |tag| %>
+			<div>
+				<h3><%= tag.name %></h3>
+
+					<p> <%= tag.posts.map(&:title) %> </p>
+
+				<p> <%= tag.posts.map(&:author) %> </p>
+
+			</div>
+
+		<% end %>
 
 	</div>
 
-<% end %>
+</div>

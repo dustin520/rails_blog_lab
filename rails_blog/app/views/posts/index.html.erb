@@ -1,10 +1,19 @@
-<h1>Welcome to the Blog!</h1>
+<div class="container">
 
-<% @posts.each do |post| %>
-	<div>
-		<h2> <%= post.title %> </h2>
-		<p> <%= post.author %> </p>
-		<a href="/posts/<%= post.id %>">Show</a>
+	<h1>Welcome to the Blog!</h1>
+
+	<div class="jumbotron">
+		
+		<button type="button" class="btn btn-warm btn-lg"><a href="posts/new">Post New</a></button>
+
+		<% @posts.each do |post| %>
+			<div>
+				<h2> <%= post.title %> </h2>
+				<p> <%= post.author %> </p>
+				<button type="button" class="btn btn-warm" style="color:black;"><a href="/posts/<%= post.id %>" style="text-decoration:none">Open</a></button>
+			</div>
+
+		<% end %>
+
 	</div>
 
-<% end %>

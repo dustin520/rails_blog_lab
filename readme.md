@@ -29,7 +29,7 @@ If you get stuck with the first two steps, look at the notes from this morning a
 
 
 ## Bonus
-
+ 
 1. Add routes and methods to update an exiting post and destroy a post.
 
 2. Try to include your own styling, bootstrap or another CSS framework in your application and style your blog.
