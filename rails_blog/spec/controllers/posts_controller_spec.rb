@@ -7,6 +7,8 @@ RSpec.describe PostsController, :type => :controller do
 			get :index
 			expect(response).to be_success
 			expect(response).to have_http_status(200)
+			myPost = Post.create()
+			get :edit, :id => myPost.id
 		end
 
 		it "renders the index template" do
@@ -22,6 +24,11 @@ RSpec.describe PostsController, :type => :controller do
 		end
 	end
 
-
- 
+	describe "GET #edit" do
+		it "should check the edit route" do
+			myPost = Post.create()
+			get :edit, :id => myPost.id
+			expect(response).to be_success
+		end
+	end
 end
