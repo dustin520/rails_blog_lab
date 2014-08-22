@@ -6,14 +6,18 @@
 		
 		<button type="button" class="btn btn-warm btn-lg"><a href="posts/new">Post New</a></button>
 
-		<% @posts.each do |post| %>
-			<div>
-				<h2> <%= post.title %> </h2>
-				<p> <%= post.author %> </p>
-				<button type="button" class="btn btn-warm" style="color:black;"><a href="/posts/<%= post.id %>" style="text-decoration:none">Open</a></button>
-			</div>
+		<div class="row">
+			
+			<% @posts.each do |post| %>
+				<div class="col-md-6">
+					<h2> <%= post.title %> </h2>
+					<p> <%= post.author %> </p>
+					<button type="button" class="btn btn-warm" style="color:black;"><a href="/posts/<%= post.id %>" style="text-decoration:none">Open</a></button>
+				</div>
 
-		<% end %>
+			<% end %>
+
+		</div>
 
 	</div>
 

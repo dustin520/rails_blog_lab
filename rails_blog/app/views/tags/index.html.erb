@@ -1,20 +1,29 @@
 <div class="container">
 	
-	<div class="jumbotron">
+	<h2>Posts filtered by Tag</h2>
 		
-		<h2>Posts filtered by Tag</h2>
 
-		<% @tags.each do |tag| %>
-			<div>
-				<h3><%= tag.name %></h3>
+	<div class="jumbotron">
+	
+	<button type="button" class="btn btn-warm btn-lg"><a href="posts/new">Post New</a></button>
 
-					<p> <%= tag.posts.map(&:title) %> </p>
+		<div class="row">
+			
+			<% @tags.each do |tag| %>
+				<div class="col-md-6">
+					<h3><%= tag.name %></h3>
+					
+					<a href="/tags/<%=tag.posts.id%>">
+						<p> <%= tag.posts.map(&:title) %> </p>
+					</a>
 
-				<p> <%= tag.posts.map(&:author) %> </p>
+					<p> <%= tag.posts.map(&:author) %> </p>
 
-			</div>
+				</div>
 
-		<% end %>
+			<% end %>
+
+		</div>
 
 	</div>
 
