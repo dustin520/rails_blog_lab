@@ -7,6 +7,9 @@
 		<p><%= @post.author %></p>
 		<p><%= @post.description %></p>
 		<p><%= @post.tags.map(&:name) %> </p>
+		<button><a href="<%=@post.id%>/edit">Edit post</a></button>
+		 <!-- button_to "Delete", post_path(@posts), method: :delete  -->
+		<a href="/posts/<%=@post.id%>/comments">View Comments(<%=@post.comments.length%>)</a>
 
 	</div>
 	

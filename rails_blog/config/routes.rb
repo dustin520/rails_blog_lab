@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
   
+  # get 'comments/index'
+
+  # get 'comments/new'
+
+  # get 'comments/show'
+
+
   root to: "posts#index"
 
-  get '/posts', to: 'posts#index'
+  resources :posts do
+	  resources :comments
+	end
 
-  get '/posts/new', to: 'posts#new'
-  get '/new', to: 'posts#new'
+  # get '/posts', to: 'posts#index'
 
-  get 'posts/:id', to: 'posts#show'
+  # get '/posts/new', to: 'posts#new'
+  # get '/new', to: 'posts#new'
 
-  post '/posts', to: 'posts#create'
+  # get 'posts/:id', to: 'posts#show'
+  # post '/posts', to: 'posts#create'
 
   get '/tags', to: 'tags#index'
 

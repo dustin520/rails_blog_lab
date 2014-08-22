@@ -1,0 +1,21 @@
+<h1>Comments#index</h1>
+<p>Find me in app/views/comments/index.html.erb</p>
+
+
+	<div>
+		<h2><%= @post.title %></h2> <br>
+		<p><%= @post.author %></p>
+	</div>
+	
+	<div>
+		<h2>Comments</h2>
+		<% @comments.each do |comment| %>
+			<div>
+				<h3><%= comment.name %></h3>
+				<p> <%= comment.title %> </p>
+				<p> <%= comment.description %> </p>
+				
+			</div>
+		<% end %>
+	</div>
+

@@ -1,0 +1,15 @@
+
+
+
+
+Edit Page
+
+
+<%= form_for @posts do |f| %>
+
+    <%= f.text_field :title %>
+    <%= f.text_field :author %>
+    <%= f.text_area :description %>
+    <%= f.submit "update" %>
+
+<% end %>
