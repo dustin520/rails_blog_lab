@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		# binding.pry
 		new_post = (params[:post]).permit(:title, :author, :description)
 		post = Post.create(new_post)
 		new_tag = (params[:tag]).permit(:name)
@@ -25,6 +26,8 @@ class PostsController < ApplicationController
 	def show
 		id = params[:id]
 		@post = Post.find(id)
+		@tags = @post.tags  # added from hw review
+		@comment = @post.comments.new # added from hw review w
 	end
 
 	def edit
@@ -50,9 +53,11 @@ class PostsController < ApplicationController
 
 	def destroy
 		id = params[:id]
-		post = Post.find(id)
-		post.destroy
+		@post = Post.find(id)
+		@post.destroy
 		redirect_to '/'
 	end
+
+	private
 
 end

@@ -8,8 +8,17 @@
 		<p><%= @post.description %></p>
 		<p>#<%= @post.tags.map(&:name).join(" #") %> </p>
 		<button><a href="<%=@post.id%>/edit">Edit post</a></button>
-		 <!-- button_to "Delete", post_path(@posts), method: :delete  -->
+		 <% button_to "Delete", post_path(@post), method: :delete %>
 		<a href="/posts/<%=@post.id%>/comments">View Comments(<%=@post.comments.length%>)</a>
+
+	<%= form_for [@post, @comment] do |f| %>
+		<%= f.text_field :title, placeholder: "title" %>
+		<%= f.submit "update" %>
+	<% end %>
+
+  <%= text_field_tag :tags, nil, placeholder: "Enter a tag" %>
+
+
 
 	</div>
 	

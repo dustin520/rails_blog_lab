@@ -1,20 +1,17 @@
 class CommentsController < ApplicationController
 
   def index
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    access_posts
     @comments = @post.comments
   end
 
   def new
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    access_posts
     @comment = @post.comments.new
   end
 
   def create
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    access_posts
 
     new_comment = params.require(:comment).permit(:name, :title, :description)
     @comment = @post.comments.create(new_comment)
@@ -24,11 +21,16 @@ class CommentsController < ApplicationController
   end
 
   def show
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    access_posts
     # @comment = @post.comments.find(params[:id])
     @comments = @post.comments
   end
 
+  private
+
+  def access_posts
+    post_id = params[:post_id]
+    @post = Post.find(post_id)
+  end
 
 end
